@@ -1,7 +1,8 @@
 import React from 'react';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
-import Linee from '@/components/Linee';
+import LineeDefinitive from '@/components/LineeDefinitive';
+import BusPhotos from '@/components/BusPhotos';
 import Biglietti from '@/components/Biglietti';
 import Storia from '@/components/Storia';
 import Footer from '@/components/Footer';
@@ -12,7 +13,8 @@ const Index = () => {
       <Header />
       <main>
         <Hero />
-        <Linee />
+        <LineeDefinitive />
+        <BusPhotos />
         <Biglietti />
         <Storia />
       </main>

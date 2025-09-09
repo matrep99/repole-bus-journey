@@ -1,6 +1,5 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import logo from '@/assets/logo-repole.png';
 
 const Header = () => {
   return (
@@ -8,7 +7,7 @@ const Header = () => {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <div className="flex items-center space-x-4">
           <img 
-            src={logo} 
+            src="/lovable-uploads/6ddc7ba0-c7ae-4e24-87c6-cbf9676a62bb.png" 
             alt="REPOLE Autolinee" 
             className="h-12 w-auto"
           />

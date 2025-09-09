@@ -8,7 +8,11 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           {/* Logo e descrizione */}
           <div className="md:col-span-2">
-            <h3 className="text-2xl font-bold mb-4">REPOLE Autolinee</h3>
+            <img 
+              src="/lovable-uploads/6ddc7ba0-c7ae-4e24-87c6-cbf9676a62bb.png" 
+              alt="REPOLE Autolinee" 
+              className="h-16 w-auto mb-4"
+            />
             <p className="text-repole-blue-light leading-relaxed mb-6">
               Dal 1970 la tua compagnia di autobus di fiducia. 
               Collegando città e persone con sicurezza, puntualità e comfort.
@@ -21,21 +25,21 @@ const Footer = () => {
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-repole-orange" />
-                <a href="mailto:info@repolebus.it" className="text-repole-blue-light hover:text-white transition-colors">
-                  info@repolebus.it
+                <a href="mailto:repoledonatosnc@gmail.com" className="text-repole-blue-light hover:text-white transition-colors">
+                  repoledonatosnc@gmail.com
                 </a>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-repole-orange" />
-                <a href="tel:+390835000000" className="text-repole-blue-light hover:text-white transition-colors">
-                  +39 0835 000000
+                <a href="tel:+393492545721" className="text-repole-blue-light hover:text-white transition-colors">
+                  349 2545721
                 </a>
               </div>
               <div className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 text-repole-orange mt-1" />
                 <span className="text-repole-blue-light">
-                  Via Roma, 123<br />
-                  75100 Matera (MT)
+                  Via Aldo Moro, 25<br />
+                  Rapone (PZ)
                 </span>
               </div>
             </div>
