@@ -11,12 +11,12 @@ const Hero = () => {
         <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
           La tua compagnia di autobus di fiducia
         </p>
-        <Button 
-          size="lg" 
-          className="bg-repole-orange hover:bg-repole-orange-dark text-white px-8 py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+        <a 
+          href="/orari-e-prezzi" 
+          className="btn-primary inline-block px-8 py-4 text-lg font-bold rounded-full bg-repole-blue text-white hover:bg-repole-orange hover:text-primary transition-all duration-300 shadow-lg hover:shadow-xl"
         >
-          Scopri le linee
-        </Button>
+          Orari e Prezzi ufficiali
+        </a>
       </div>
     </section>
   );

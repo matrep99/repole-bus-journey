@@ -21,6 +21,11 @@ const OrariPrezzi = () => {
       }} />
       
       <div className="pt-24 pb-20 px-6">
+        <nav aria-label="breadcrumb" className="max-w-7xl mx-auto mb-2">
+          <a href="/" className="link-back text-repole-blue hover:text-repole-orange font-semibold hover:underline transition-colors duration-300">
+            ← Torna alla Home
+          </a>
+        </nav>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-5xl font-bold text-repole-blue mb-6">
