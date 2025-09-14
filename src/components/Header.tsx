@@ -20,8 +20,8 @@ const Header = () => {
           <a href="#linee" className="text-white hover:text-repole-orange transition-colors duration-300 font-medium">
             Linee
           </a>
-          <a href="#orari" className="text-white hover:text-repole-orange transition-colors duration-300 font-medium">
-            Orari
+          <a href="/orari-prezzi" className="text-white hover:text-repole-orange transition-colors duration-300 font-medium">
+            Orari e Prezzi
           </a>
           <a href="#biglietti" className="text-white hover:text-repole-orange transition-colors duration-300 font-medium">
             Biglietti
