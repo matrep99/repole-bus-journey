@@ -3,6 +3,16 @@ import React from 'react';
 const OrariPrezzi = () => {
   return (
     <div className="min-h-screen bg-background">
+      <script dangerouslySetInnerHTML={{
+        __html: `
+          (function(){
+            var p = location.pathname.replace(/\\/+$/,'');
+            var aliases = ['/orari-prezzi','/orari','/prezzi-orari','/orari_e_prezzi'];
+            if (aliases.includes(p)) location.replace('/orari-e-prezzi');
+          })();
+        `
+      }} />
+      
       <style dangerouslySetInnerHTML={{
         __html: `
           .timetable{width:100%;border-collapse:separate;border-spacing:0;margin:1rem 0;font-size:16px}
@@ -17,12 +27,14 @@ const OrariPrezzi = () => {
           @media(max-width:768px){.timetable{display:block;overflow-x:auto;white-space:nowrap}}
           .price-table td:last-child,.price-table th:last-child{text-align:left}
           .num{text-align:right}
+          .link-back{ color:#0D4FA8; text-decoration:none; font-weight:600 }
+          .link-back:hover{ color:#F28C28; text-decoration:underline }
         `
       }} />
       
       <div className="pt-24 pb-20 px-6">
         <nav aria-label="breadcrumb" className="max-w-7xl mx-auto mb-2">
-          <a href="/" className="link-back text-repole-blue hover:text-repole-orange font-semibold hover:underline transition-colors duration-300">
+          <a href="/" className="link-back">
             ← Torna alla Home
           </a>
         </nav>

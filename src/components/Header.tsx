@@ -4,6 +4,7 @@ const Header = () => {
   useEffect(() => {
     // Mobile menu functionality
     const navToggle = document.getElementById('navToggle');
+    const navClose = document.getElementById('navClose');
     const siteNav = document.getElementById('siteNav');
     const body = document.body;
 
@@ -30,6 +31,7 @@ const Header = () => {
     }
 
     navToggle?.addEventListener('click', toggleNav);
+    navClose?.addEventListener('click', closeNav);
 
     // Close with ESC
     const handleKeydown = (e: KeyboardEvent) => {
@@ -54,17 +56,41 @@ const Header = () => {
       const link = target.closest('a');
       if (!link) return;
 
+      // Gestione ancora Contatti (footer)
       if (link.matches('[data-nav-anchor]')) {
         e.preventDefault();
         const targetElement = document.getElementById('contatti');
+        closeNav();
         if (targetElement) {
-          closeNav();
           setTimeout(() => targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
           history.pushState(null, '', '#contatti');
+        } else {
+          // se non sei in home, porta a home con hash
+          location.href = '/#contatti';
         }
-      } else {
-        closeNav();
+        return;
       }
+
+      // Gestione "Biglietti" (sezione in Home)
+      if (link.matches('[data-home-anchor]')) {
+        e.preventDefault();
+        closeNav();
+        if (location.pathname === '/' || location.pathname === '') {
+          const targetElement = document.getElementById('biglietti');
+          if (targetElement) {
+            setTimeout(() => targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+            history.pushState(null, '', '#biglietti');
+          } else {
+            location.href = '/#biglietti';
+          }
+        } else {
+          location.href = '/#biglietti';
+        }
+        return;
+      }
+
+      // Per gli altri link interni normali chiudi e lascia procedere
+      closeNav();
     };
     siteNav?.addEventListener('click', handleNavClick);
 
@@ -74,11 +100,16 @@ const Header = () => {
         const target = document.getElementById('contatti');
         if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
+      if (location.hash === '#biglietti') {
+        const target = document.getElementById('biglietti');
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     };
     window.addEventListener('load', handleLoad);
 
     return () => {
       navToggle?.removeEventListener('click', toggleNav);
+      navClose?.removeEventListener('click', closeNav);
       document.removeEventListener('keydown', handleKeydown);
       document.removeEventListener('click', handleClick);
       siteNav?.removeEventListener('click', handleNavClick);
@@ -107,15 +138,23 @@ const Header = () => {
         .site-nav a { color: #0D4FA8; font-weight: 700; text-decoration: none; font-size: 18px; }
         .site-nav a:hover { color: #F28C28; text-decoration: underline; }
 
+        .nav-close {
+          position: absolute; top: 16px; right: 16px;
+          border: 0; background: transparent; font-size: 28px; line-height: 1;
+          color: #0D4FA8; cursor: pointer;
+        }
+        .nav-close:hover { color: #F28C28; }
+
         @media (min-width: 992px) {
           .nav-toggle { display: none; }
           .site-nav { display: block; position: static; padding: 0; background: transparent; }
           .site-nav ul { display: flex; gap: 24px; }
           .site-nav li { margin: 0; }
           .site-nav a { color: white; font-weight: 500; font-size: 16px; }
+          .nav-close { display: none; }
         }
 
-        #contatti { scroll-margin-top: 80px; }
+        #contatti, #biglietti { scroll-margin-top: 80px; }
         `
       }} />
       
@@ -142,9 +181,11 @@ const Header = () => {
           </button>
 
           <nav id="siteNav" className="site-nav" aria-hidden="true">
+            <button id="navClose" className="nav-close" aria-label="Chiudi menu">✕</button>
             <ul>
               <li><a href="/">Home</a></li>
               <li><a href="/orari-e-prezzi">Orari e Prezzi</a></li>
+              <li><a href="/#biglietti" data-home-anchor>Biglietti</a></li>
               <li><a href="#contatti" data-nav-anchor>Contatti</a></li>
             </ul>
           </nav>

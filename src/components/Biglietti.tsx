@@ -61,15 +61,15 @@ const Biglietti = () => {
         </div>
 
         <div className="text-center">
-          <Button 
-            size="lg" 
-            className="bg-repole-orange hover:bg-repole-orange-dark text-white px-12 py-4 text-xl font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+          <a 
+            href="https://mycard.cotrab.eu/" 
+            target="_blank" 
+            rel="noopener"
+            className="btn-primary inline-block px-12 py-4 text-xl font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+            style={{ display: 'inline-block', padding: '12px 18px', borderRadius: '999px', background: '#0D4FA8', color: '#fff', fontWeight: '700', textDecoration: 'none' }}
           >
-            Acquista ora
-          </Button>
-          <p className="text-sm text-muted-foreground mt-4">
-            *Sistema di prenotazione online in arrivo
-          </p>
+            Richiedi la tessera elettronica
+          </a>
         </div>
       </div>
     </section>
