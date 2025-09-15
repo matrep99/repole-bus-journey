@@ -20,7 +20,7 @@ const Footer = () => {
           </div>
 
           {/* Contatti */}
-          <div>
+          <section id="contatti">
             <h4 className="text-xl font-semibold mb-6">Contatti</h4>
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
@@ -43,7 +43,7 @@ const Footer = () => {
                 </span>
               </div>
             </div>
-          </div>
+          </section>
 
           {/* Link utili */}
           <div>
