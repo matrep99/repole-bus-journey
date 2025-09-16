@@ -1,9 +1,13 @@
-import { Link, useNavigate } from 'react-router-dom'
-import { useState } from 'react'
+import { Link, useNavigate, useLocation } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 
 const Header = () => {
   const [open, setOpen] = useState(false)
   const navigate = useNavigate()
+  const location = useLocation()
+
+  // Chiudi menu a ogni cambio route/hash
+  useEffect(() => { if (open) setOpen(false) }, [location.pathname, location.hash])
 
   const goHomeAndScroll = (id: 'biglietti' | 'contatti') => {
     navigate('/', { state: { scrollTo: id } })
@@ -40,7 +44,7 @@ const Header = () => {
 
       {/* Mobile Menu */}
       {open && (
-        <div className="fixed inset-0 z-50 bg-white">
+        <div className="fixed inset-0 z-50 bg-white md:hidden">
           <button
             aria-label="Chiudi menu"
             onClick={() => setOpen(false)}
