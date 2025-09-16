@@ -1,11 +1,10 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 
-export default function Header() {
+const Header = () => {
   const [open, setOpen] = useState(false)
   const navigate = useNavigate()
 
-  // vai in Home e scrolla alla sezione
   const goHomeAndScroll = (id: 'biglietti' | 'contatti') => {
     navigate('/', { state: { scrollTo: id } })
     setOpen(false)
@@ -39,15 +38,16 @@ export default function Header() {
         </button>
       </div>
 
-      {/* Drawer mobile */}
+      {/* Mobile Menu */}
       {open && (
         <div className="fixed inset-0 z-50 bg-white">
-          {/* X in alto a destra */}
           <button
             aria-label="Chiudi menu"
             onClick={() => setOpen(false)}
             className="absolute top-4 right-4 text-3xl leading-none text-[#0D4FA8] hover:text-[#F28C28]"
-          >✕</button>
+          >
+            ✕
+          </button>
 
           <ul className="mt-24 px-6 flex flex-col gap-5 text-lg font-bold text-[#0D4FA8]">
             <li><Link to="/" onClick={() => setOpen(false)} className="hover:text-[#F28C28]">Home</Link></li>
@@ -60,3 +60,5 @@ export default function Header() {
     </header>
   )
 }
+
+export default Header
